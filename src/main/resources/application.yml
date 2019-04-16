@@ -1,10 +1,12 @@
+#jdbc:mysql://127.0.0.1:3306/passbook?autoReconnect=true&useUnicode=true&characterEncoding=UTF8
 spring:
   application:
     name: ImoocMerchants
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/passbook?autoReconnect=true
+    url: jdbc:mysql://127.0.0.1:3306/passbook?autoReconnect=true&useUnicode=true&characterEncoding=UTF8
     username: root
-    password: 12345
+    password:
+
   kafka:
     bootstrap-servers: 127.0.0.1:9092
     consumer:

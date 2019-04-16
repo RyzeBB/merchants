@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 
 
@@ -20,10 +21,10 @@ public class MerchantsServTest {
     @Autowired
     private IMerchantsServ merchantsServ;
     @Test
-   // @Transactional
+    @Transactional
     public void testCreateMerchantServ(){
         CreateMerchantsRequest createMerchantsRequest = new CreateMerchantsRequest();
-        createMerchantsRequest.setName("慕课Imooc-1");
+        createMerchantsRequest.setName("慕课Imooc-2");
         createMerchantsRequest.setLogoUrl("www.imooc.com");
         createMerchantsRequest.setBusinessLicenseUrl("www.imooc.com");
         createMerchantsRequest.setAddress("北京");
