@@ -43,7 +43,7 @@ public class CreateMerchantsRequest {
 	private String address;
 	/**
 	 * 验证请求的有效性
-	 * @param merchantsdao merchantsDao {@link merchantsDao}}
+	 * @param merchantsDao merchantsDao {@link MerchantsDao}}
 	 * @return {@link ErrorCode}}
 	 */
 	public ErrorCode validate(MerchantsDao merchantsDao) {

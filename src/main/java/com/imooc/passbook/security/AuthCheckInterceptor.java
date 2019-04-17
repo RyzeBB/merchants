@@ -6,6 +6,8 @@ package com.imooc.passbook.security;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -18,6 +20,7 @@ import com.imooc.passbook.constant.Constants;
  * 对http 请求进行拦截处理
  * 2019年3月24日
  */
+@Slf4j
 @Component
 public class AuthCheckInterceptor implements HandlerInterceptor{
 
@@ -28,7 +31,9 @@ public class AuthCheckInterceptor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
 		// TODO Auto-generated method stub
+
 		String token = request.getHeader(Constants.TOKEN_STRING);
+		log.info("preHandle {}" + JSON.toJSONString(token));
 		if(StringUtils.isEmpty(token)) {
 			throw new Exception("Header 中缺少 " + Constants.TOKEN_STRING + "!");
 		}
