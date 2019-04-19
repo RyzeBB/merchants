@@ -1,12 +1,14 @@
 package com.imooc.passbook.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.imooc.passbook.service.IMerchantsServ;
 import com.imooc.passbook.vo.CreateMerchantsRequest;
 import com.imooc.passbook.vo.PassTemplate;
 import com.imooc.passbook.vo.Response;
-import org.springframework.stereotype.Controller;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/merchants")
 public class MerchantsController {
@@ -18,16 +20,19 @@ public class MerchantsController {
 
     @PostMapping("/createmerchants")
     public Response CreateMerchants(@RequestBody CreateMerchantsRequest createMerchantsRequest){
+        log.info("CreateMerchants {}" + JSON.toJSONString(createMerchantsRequest));
         return iMerchantsServ.createMerchants(createMerchantsRequest);
     }
 
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public Response BuildMerchantsInfo(@PathVariable("id") Integer id){
+        log.info("BuildMerchantsInfo {}" + JSON.toJSONString(id));
         return iMerchantsServ.buildMerchantsInfoById(id);
     }
 
-    @RequestMapping("/dropasstemplate")
-    public Response DropPassTemplate(PassTemplate passTemplate){
+    @PostMapping("/droppasstemplate")
+    public Response DropPassTemplate(@RequestBody PassTemplate passTemplate){
+        log.info("DropPassTemplate {}" + JSON.toJSONString(passTemplate));
         return iMerchantsServ.dropPassTemplate(passTemplate);
     }
 
