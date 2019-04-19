@@ -45,5 +45,6 @@ public class MerchantsServTest {
         passTemplate.setStart(new Date());
         passTemplate.setEnd(DateUtils.addDays(new Date(),10));
         System.out.println(JSON.toJSONString(merchantsServ.dropPassTemplate(passTemplate)));
+        System.out.println();
     }
 }
